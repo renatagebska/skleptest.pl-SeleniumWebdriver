@@ -10,38 +10,32 @@ class SortPage:
         self.wait = WebDriverWait(self.driver, 10)
 
         self.sorting_box_name = SortProducts.sorting_box_name
-        self.default_sorting_xpath = SortProducts.default_sorting_xpath
-        self.sort_by_popularity_xpath = SortProducts.sort_by_popularity_xpath
-        self.sort_by_rating_xpath = SortProducts.sort_by_rating_xpath
-        self.sort_by_newness_xpath = SortProducts.sort_by_newness_xpath
-        self.sort_by_price_low_xpath = SortProducts.sort_by_price_low_xpath
-        self.sort_by_price_high_xpath = SortProducts.sort_by_price_high_xpath
+        self.sorting_options = {
+            "Default": SortProducts.default_sorting_xpath,
+            "Popularity": SortProducts.sort_by_popularity_xpath,
+            "Rating": SortProducts.sort_by_rating_xpath,
+            "Newness": SortProducts.sort_by_newness_xpath,
+            "Price_low": SortProducts.sort_by_price_low_xpath,
+            "Price_high": SortProducts.sort_by_price_high_xpath
+        }
 
     def locate_sorting_box(self):
         sorting_box_element = self.wait.until(EC.visibility_of_element_located((By.NAME, self.sorting_box_name)))
         sorting_box_element.click()
 
-    def check_default_sorting(self):
-        default_sorting_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, self.default_sorting_xpath)))
-        default_sorting_element.click()
+    def click_sorting_option(self, option):
+        sort = self.sorting_options.get(option)
+        if sort:
+            try:
+                sort_by_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, sort)))
+                sort_by_element.click()
+            except:
+                print(f"Failed to click on {option}.")
+        else:
+            print(f"Sorting option {option} is not valid.")
 
-    def check_sort_by_popularity(self):
-        sort_by_popularity_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, self.sort_by_popularity_xpath)))
-        sort_by_popularity_element.click()
-
-    def check_sort_by_rating(self):
-        sort_by_rating_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, self.sort_by_rating_xpath)))
-        sort_by_rating_element.click()
-
-    def check_sort_by_newness(self):
-        sort_by_newness_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, self.sort_by_newness_xpath)))
-        sort_by_newness_element.click()
-
-    def check_sort_by_price_low(self):
-        sort_by_price_low_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, self.sort_by_price_low_xpath)))
-        sort_by_price_low_element.click()
-
-    def check_sort_by_price_high(self):
-        sort_by_price_high_element = self.wait.until(EC.element_to_be_clickable((By.XPATH, self.sort_by_price_high_xpath)))
-        sort_by_price_high_element.click()
-
+    def verify_sorting_option(self, option, option_url):
+        if self.driver.current_url != option_url:
+            print(f"Sorting option {option} does not work.")
+            return False
+        return True

@@ -47,6 +47,3 @@ class ProductsCategories:
             print(f'Failed to navigate to category: {category}')
             return False
         return True
-
-    def verify_products_category(self, category):
-        category_products = self.wait.until(EC)
