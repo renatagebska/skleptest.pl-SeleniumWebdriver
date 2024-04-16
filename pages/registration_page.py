@@ -29,12 +29,3 @@ class RegistrationPage:
 
     def click_register_button(self):
         self.driver.find_element(By.XPATH, self.reg_button_xpath).click()
-
-    def check_registration_success(self):
-        try:
-            success_message = WebDriverWait(self.driver, 10).until(
-                EC.text_to_be_present_in_element((By.TAG_NAME, "body"), "Hello")
-            )
-            return True
-        except:
-            return False

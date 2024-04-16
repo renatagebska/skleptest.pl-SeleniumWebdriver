@@ -1,6 +1,6 @@
 class SortProducts:
 
-    results_name = 'orderby'
+    sorting_box_name = 'orderby'
     default_sorting_xpath = '//*[@id="page"]/div/div/div[2]/div/form/select/option[1]'
     sort_by_popularity_xpath = '//*[@id="page"]/div/div/div[2]/div/form/select/option[2]'
     sort_by_rating_xpath = '//*[@id="page"]/div/div/div[2]/div/form/select/option[3]'
