@@ -43,3 +43,8 @@ class TestSorting(unittest.TestCase):
         self.sorting_option.click_sorting_option("Default")
         self.assertTrue(self.sorting_option.verify_sorting_option("Default", "https://skleptest.pl/product-category/shirts/?orderby=menu_order"), "Sorting by default sorting failed")
 
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == "__main__":
+    unittest.main()
