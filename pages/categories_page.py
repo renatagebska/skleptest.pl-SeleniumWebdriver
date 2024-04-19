@@ -6,6 +6,7 @@ from locators.categories_locators import CategoriesLocator
 
 
 class ProductsCategories:
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)

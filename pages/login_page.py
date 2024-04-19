@@ -6,6 +6,7 @@ from locators.login_locators import LoginLocator
 
 
 class LoginPage:
+
     def __init__(self, driver):
         self.driver = driver
         self.logger = logging.getLogger(__name__)

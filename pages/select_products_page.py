@@ -5,6 +5,7 @@ from locators.select_products_locators import SelectProductsLocator
 
 
 class SelectProducts:
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
