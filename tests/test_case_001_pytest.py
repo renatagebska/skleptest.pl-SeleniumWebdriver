@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from pages.registration_page import RegistrationPage
 
+
 @pytest.fixture(scope="module")
 def driver():
     driver = webdriver.Chrome()
@@ -10,6 +11,7 @@ def driver():
     driver.get("https://skleptest.pl")
     yield driver
     driver.quit()
+
 
 def test_registration_successful(driver):
     registration_page = RegistrationPage(driver)

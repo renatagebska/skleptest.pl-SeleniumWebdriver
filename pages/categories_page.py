@@ -2,7 +2,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from locators.categories_locators import Categories
+from locators.categories_locators import CategoriesLocator
+
 
 class ProductsCategories:
     def __init__(self, driver):
@@ -11,21 +12,21 @@ class ProductsCategories:
 
         # Use Categories class attributes to define category IDs
         self.categories = {
-            "All": Categories.all_id,
-            "Shirts": Categories.shirts_id,
-            "Featured": Categories.featured_id,
-            "Trends": Categories.trends_id,
-            "Scarfs": Categories.scarfs_id,
-            "Shoes": Categories.shoes_id,
-            "Tops": Categories.tops_id,
-            "Blouses": Categories.blouses_id,
-            "Jeans": Categories.jeans_id,
-            "Dresses": Categories.dresses_id
+            "All": CategoriesLocator.all_id,
+            "Shirts": CategoriesLocator.shirts_id,
+            "Featured": CategoriesLocator.featured_id,
+            "Trends": CategoriesLocator.trends_id,
+            "Scarfs": CategoriesLocator.scarfs_id,
+            "Shoes": CategoriesLocator.shoes_id,
+            "Tops": CategoriesLocator.tops_id,
+            "Blouses": CategoriesLocator.blouses_id,
+            "Jeans": CategoriesLocator.jeans_id,
+            "Dresses": CategoriesLocator.dresses_id
         }
 
     def navigate_to_categories(self):
         # Find the categories element
-        categories_element = self.wait.until(EC.visibility_of_element_located((By.ID, Categories.categories_id)))
+        categories_element = self.wait.until(EC.visibility_of_element_located((By.ID, CategoriesLocator.categories_id)))
         # Move to the categories element
         ActionChains(self.driver).move_to_element(categories_element).perform()
 

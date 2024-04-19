@@ -1,4 +1,4 @@
-class SortProducts:
+class SortProductsLocator:
 
     sorting_box_name = 'orderby'
     default_sorting_xpath = '//*[@id="page"]/div/div/div[2]/div/form/select/option[1]'

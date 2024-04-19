@@ -3,6 +3,7 @@ from selenium import webdriver
 from pages.sort_page import SortPage
 from pages.categories_page import ProductsCategories
 
+
 class TestSorting(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -45,6 +46,7 @@ class TestSorting(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == "__main__":
     unittest.main()

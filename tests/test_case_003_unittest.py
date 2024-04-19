@@ -2,6 +2,7 @@ import unittest
 from selenium import webdriver
 from pages.categories_page import ProductsCategories
 
+
 class TestCategoryNavigation(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -91,6 +92,7 @@ class TestCategoryNavigation(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == "__main__":
     unittest.main()

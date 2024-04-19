@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from pages.login_page import LoginPage
 
+
 @pytest.fixture(scope="module")
 def driver():
     driver = webdriver.Chrome()
@@ -11,9 +12,11 @@ def driver():
     yield driver
     driver.quit()
 
+
 @pytest.fixture(scope="module")
 def login_page(driver):
     return LoginPage(driver)
+
 
 def test_login_and_logout(driver, login_page):
     login_page.go_to_account()

@@ -1,7 +1,8 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from locators.sort_locators import SortProducts
+from locators.sort_locators import SortProductsLocator
+
 
 class SortPage:
 
@@ -9,14 +10,14 @@ class SortPage:
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
 
-        self.sorting_box_name = SortProducts.sorting_box_name
+        self.sorting_box_name = SortProductsLocator.sorting_box_name
         self.sorting_options = {
-            "Default": SortProducts.default_sorting_xpath,
-            "Popularity": SortProducts.sort_by_popularity_xpath,
-            "Rating": SortProducts.sort_by_rating_xpath,
-            "Newness": SortProducts.sort_by_newness_xpath,
-            "Price_low": SortProducts.sort_by_price_low_xpath,
-            "Price_high": SortProducts.sort_by_price_high_xpath
+            "Default": SortProductsLocator.default_sorting_xpath,
+            "Popularity": SortProductsLocator.sort_by_popularity_xpath,
+            "Rating": SortProductsLocator.sort_by_rating_xpath,
+            "Newness": SortProductsLocator.sort_by_newness_xpath,
+            "Price_low": SortProductsLocator.sort_by_price_low_xpath,
+            "Price_high": SortProductsLocator.sort_by_price_high_xpath
         }
 
     def locate_sorting_box(self):
