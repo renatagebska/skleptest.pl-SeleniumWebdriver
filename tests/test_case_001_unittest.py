@@ -5,6 +5,7 @@ from pages.registration_page import RegistrationPage
 
 
 class TestRegistration(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(10)

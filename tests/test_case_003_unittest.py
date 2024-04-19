@@ -5,6 +5,7 @@ from pages.categories_page import ProductsCategories
 
 
 class TestCategoryNavigation(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()

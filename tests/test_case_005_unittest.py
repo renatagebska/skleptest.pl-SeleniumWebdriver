@@ -8,6 +8,7 @@ from pages.add_products_page import AddProducts
 
 
 class TestAddProducts(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
