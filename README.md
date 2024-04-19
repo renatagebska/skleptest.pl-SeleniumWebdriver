@@ -5,7 +5,7 @@
 
 
 ### ID: 001
-### Title: Registering a New User Using New Registration Data.
+### Title: Registering a new user using new registration data.
 
 ##### Environment: Chrome version 124.0.6367.60, Windows 11
 
