@@ -6,6 +6,7 @@ from pages.categories_page import ProductsCategories
 
 
 class TestSorting(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
