@@ -1,4 +1,4 @@
-class SelectProductsLocators:
+class SelectProductsLocator:
 
     select_first_product_xpath = '//*[@id="page"]/div/div/div[2]/div/ul/li[1]/a[1]/h2'
     select_second_product_xpath = '//*[@id="page"]/div/div/div[2]/div/ul/li[2]/a[1]/h2'

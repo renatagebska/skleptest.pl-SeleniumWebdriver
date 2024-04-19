@@ -1,4 +1,5 @@
 import pytest
+import datetime
 from selenium import webdriver
 from pages.categories_page import ProductsCategories
 
@@ -84,3 +85,12 @@ def test_dresses_category_navigation(driver):
     product_categories.navigate_to_categories()
     product_categories.click_category("Dresses")
     assert product_categories.verify_category_navigation("Dresses", "https://skleptest.pl/product-category/dresses/"), "Navigation to Dresses category failed"
+
+
+@pytest.fixture(scope="function", autouse=True)
+def screenshot_after_test(request, driver):
+    yield
+    test_method_name = request.node.name
+    timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+    screenshot_path = f'../screenshots/test_case_003_{test_method_name}_{timestamp}_pytest.png'
+    driver.save_screenshot(screenshot_path)

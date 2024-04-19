@@ -1,4 +1,5 @@
 import unittest
+import datetime
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from pages.login_page import LoginPage
@@ -24,6 +25,10 @@ class TestLoginPage(unittest.TestCase):
         self.assertFalse(self.login_page.is_logged_in())
 
     def tearDown(self):
+        test_method_name = self._testMethodName
+        timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+        screenshot_path = f'../screenshots/test_case_002_{test_method_name}_{timestamp}_unittest.png'
+        self.driver.save_screenshot(screenshot_path)
         self.driver.quit()
 
 

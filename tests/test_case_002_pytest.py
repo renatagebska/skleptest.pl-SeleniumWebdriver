@@ -1,4 +1,5 @@
 import pytest
+import datetime
 from selenium import webdriver
 from pages.login_page import LoginPage
 
@@ -27,3 +28,12 @@ def test_login_and_logout(driver, login_page):
     login_page.logout()
 
     assert not login_page.is_logged_in()
+
+
+@pytest.fixture(scope="function", autouse=True)
+def screenshot_after_test(request, driver):
+    yield
+    test_method_name = request.node.name
+    timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+    screenshot_path = f'../screenshots/test_case_002_{test_method_name}_{timestamp}_pytest.png'
+    driver.save_screenshot(screenshot_path)

@@ -1,5 +1,4 @@
 import unittest
-import time
 from selenium import webdriver
 import datetime
 from pages.registration_page import RegistrationPage
@@ -20,8 +19,8 @@ class TestRegistration(unittest.TestCase):
 
     def tearDown(self):
         test_method_name = self._testMethodName
-        timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        screenshot_path = f'../screenshots/{test_method_name}_{timestamp}.png'
+        timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+        screenshot_path = f'../screenshots/test_case_001_{test_method_name}_{timestamp}_unittest.png'
         self.driver.save_screenshot(screenshot_path)
         self.driver.quit()
 

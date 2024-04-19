@@ -1,4 +1,5 @@
 import unittest
+import datetime
 from selenium import webdriver
 from pages.categories_page import ProductsCategories
 
@@ -91,6 +92,10 @@ class TestCategoryNavigation(unittest.TestCase):
         self.assertTrue(self.product_categories.verify_category_navigation("Dresses", "https://skleptest.pl/product-category/dresses/"),"Navigation to Dresses category failed")
 
     def tearDown(self):
+        test_method_name = self._testMethodName
+        timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+        screenshot_path = f'../screenshots/test_case_003_{test_method_name}_{timestamp}_unittest.png'
+        self.driver.save_screenshot(screenshot_path)
         self.driver.quit()
 
 

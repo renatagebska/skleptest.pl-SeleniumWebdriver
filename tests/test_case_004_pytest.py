@@ -1,4 +1,5 @@
 import pytest
+import datetime
 from selenium import webdriver
 from pages.categories_page import ProductsCategories
 from pages.sort_page import SortPage
@@ -72,3 +73,12 @@ def test_sort_by_default(driver):
     sorting_option.locate_sorting_box()
     sorting_option.click_sorting_option("Default")
     assert sorting_option.verify_sorting_option("Default", "https://skleptest.pl/product-category/shirts/?orderby=menu_order"), "Sorting by default sorting failed"
+
+
+@pytest.fixture(scope="function", autouse=True)
+def screenshot_after_test(request, driver):
+    yield
+    test_method_name = request.node.name
+    timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+    screenshot_path = f'../screenshots/test_case_004_{test_method_name}_{timestamp}_pytest.png'
+    driver.save_screenshot(screenshot_path)

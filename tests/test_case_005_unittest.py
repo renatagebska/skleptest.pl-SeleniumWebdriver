@@ -1,4 +1,5 @@
 import unittest
+import datetime
 from selenium import webdriver
 from pages.categories_page import ProductsCategories
 from pages.sort_page import SortPage
@@ -36,6 +37,10 @@ class TestAddProducts(unittest.TestCase):
         self.add_products.click_my_cart_link()
 
     def tearDown(self):
+        test_method_name = self._testMethodName
+        timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+        screenshot_path = f'../screenshots/test_case_005_{test_method_name}_{timestamp}_unittest.png'
+        self.driver.save_screenshot(screenshot_path)
         self.driver.quit()
 
 

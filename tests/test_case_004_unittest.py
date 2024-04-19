@@ -1,4 +1,5 @@
 import unittest
+import datetime
 from selenium import webdriver
 from pages.sort_page import SortPage
 from pages.categories_page import ProductsCategories
@@ -45,6 +46,10 @@ class TestSorting(unittest.TestCase):
         self.assertTrue(self.sorting_option.verify_sorting_option("Default", "https://skleptest.pl/product-category/shirts/?orderby=menu_order"), "Sorting by default sorting failed")
 
     def tearDown(self):
+        test_method_name = self._testMethodName
+        timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
+        screenshot_path = f'../screenshots/test_case_004_{test_method_name}_{timestamp}_unittest.png'
+        self.driver.save_screenshot(screenshot_path)
         self.driver.quit()
 
 
