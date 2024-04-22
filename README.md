@@ -1,7 +1,7 @@
 # skleptest.pl-SeleniumWebdriver
 ## Automation of Test Cases using Selenium Webdriver
 
-## Test Cases
+## Test Cases:
 
 
 ### ID: 001
