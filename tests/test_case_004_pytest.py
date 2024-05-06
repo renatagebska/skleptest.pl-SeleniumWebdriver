@@ -51,7 +51,7 @@ def test_sort_by_price_low(driver):
     product_categories.click_category("Shirts")
     sorting_option = SortPage(driver)
     sorting_option.locate_sorting_box()
-    sorting_option.click_sorting_option("Price_low")
+    sorting_option.click_sorting_option("Price_asc")
     assert sorting_option.verify_sorting_option("Price_low", "https://skleptest.pl/product-category/shirts/?orderby=price"), "Sorting by price low to high failed"
 
 
@@ -61,7 +61,7 @@ def test_sort_by_price_high(driver):
     product_categories.click_category("Shirts")
     sorting_option = SortPage(driver)
     sorting_option.locate_sorting_box()
-    sorting_option.click_sorting_option("Price_high")
+    sorting_option.click_sorting_option("Price_desc")
     assert sorting_option.verify_sorting_option("Price_high", "https://skleptest.pl/product-category/shirts/?orderby=price-desc"), "Sorting by price high to low failed"
 
 

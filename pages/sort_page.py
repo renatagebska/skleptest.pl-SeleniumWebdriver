@@ -16,8 +16,8 @@ class SortPage:
             "Popularity": SortProductsLocator.sort_by_popularity_xpath,
             "Rating": SortProductsLocator.sort_by_rating_xpath,
             "Newness": SortProductsLocator.sort_by_newness_xpath,
-            "Price_low": SortProductsLocator.sort_by_price_low_xpath,
-            "Price_high": SortProductsLocator.sort_by_price_high_xpath
+            "Price_asc": SortProductsLocator.sort_by_price_low_xpath,
+            "Price_desc": SortProductsLocator.sort_by_price_high_xpath
         }
 
     def locate_sorting_box(self):
