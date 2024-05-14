@@ -8,3 +8,7 @@ class RegistrationLocator:
     reg_password_css_selector = 'input#reg_password'
     # registration button
     reg_button_xpath = '//*[@id="customer_login"]/div[2]/form/p[3]/input[3]'
+    # error message
+    error_xpath = '//*[@id="post-8"]/div[2]/ul/li'
+    # welcome_element
+    welcome_element_class = 'woocommerce-MyAccount-content'

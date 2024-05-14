@@ -1,4 +1,5 @@
 import logging
+from selenium.common import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -17,6 +18,7 @@ class LoginPage:
         self.password_css_selector = LoginLocator.password_css_selector
         self.login_button_xpath = LoginLocator.login_button_xpath
         self.logout_xpath = LoginLocator.logout_xpath
+        self.error_xpath = LoginLocator.error_xpath
 
     def go_to_account(self):
         account_link = self.driver.find_element(By.XPATH, self.account_link_xpath)
@@ -55,3 +57,13 @@ class LoginPage:
             print("Clicking the logout button took us to the expected page: https://skleptest.pl/.")
         else:
             print("Error: Clicking the logout button did not take us to the expected page.")
+
+    def is_error_message_displayed(self) -> object:
+        try:
+            error_message_element = self.wait.until(EC.visibility_of_element_located((By.XPATH, self.error_xpath)))
+            error_message = error_message_element.text
+            self.logger.info(f"Error message displayed: {error_message}")
+            return error_message
+        except TimeoutException:
+            self.logger.error("Timeout: Error message was not visible.")
+            return None

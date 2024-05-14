@@ -31,15 +31,15 @@ class TestSorting(unittest.TestCase):
         self.sorting_option.click_sorting_option("Newness")
         self.assertTrue(self.sorting_option.verify_sorting_option("Newness", "https://skleptest.pl/product-category/shirts/?orderby=date"), "Sorting by newness failed")
 
-    def test_sort_by_price_low(self):
+    def test_sort_by_price_asc(self):
         self.sorting_option.locate_sorting_box()
-        self.sorting_option.click_sorting_option("Price_low")
-        self.assertTrue(self.sorting_option.verify_sorting_option("Price_low", "https://skleptest.pl/product-category/shirts/?orderby=price"), "Sorting by price low to high failed")
+        self.sorting_option.click_sorting_option("Price_asc")
+        self.assertTrue(self.sorting_option.verify_sorting_option("Price_asc", "https://skleptest.pl/product-category/shirts/?orderby=price"), "Sorting by price low to high failed")
 
-    def test_sort_by_price_high(self):
+    def test_sort_by_price_desc(self):
         self.sorting_option.locate_sorting_box()
-        self.sorting_option.click_sorting_option("Price_high")
-        self.assertTrue(self.sorting_option.verify_sorting_option("Price_high", "https://skleptest.pl/product-category/shirts/?orderby=price-desc"), "Sorting by price high to low failed")
+        self.sorting_option.click_sorting_option("Price_desc")
+        self.assertTrue(self.sorting_option.verify_sorting_option("Price_desc", "https://skleptest.pl/product-category/shirts/?orderby=price-desc"), "Sorting by price high to low failed")
 
     def test_sort_by_default(self):
         self.sorting_option.locate_sorting_box()

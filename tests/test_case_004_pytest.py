@@ -45,24 +45,24 @@ def test_sort_by_newness(driver):
     assert sorting_option.verify_sorting_option("Newness", "https://skleptest.pl/product-category/shirts/?orderby=date"), "Sorting by newness failed"
 
 
-def test_sort_by_price_low(driver):
+def test_sort_by_price_asc(driver):
     product_categories = ProductsCategories(driver)
     product_categories.navigate_to_categories()
     product_categories.click_category("Shirts")
     sorting_option = SortPage(driver)
     sorting_option.locate_sorting_box()
-    sorting_option.click_sorting_option("Price_low")
-    assert sorting_option.verify_sorting_option("Price_low", "https://skleptest.pl/product-category/shirts/?orderby=price"), "Sorting by price low to high failed"
+    sorting_option.click_sorting_option("Price_asc")
+    assert sorting_option.verify_sorting_option("Price_asc", "https://skleptest.pl/product-category/shirts/?orderby=price"), "Sorting by price low to high failed"
 
 
-def test_sort_by_price_high(driver):
+def test_sort_by_price_desc(driver):
     product_categories = ProductsCategories(driver)
     product_categories.navigate_to_categories()
     product_categories.click_category("Shirts")
     sorting_option = SortPage(driver)
     sorting_option.locate_sorting_box()
-    sorting_option.click_sorting_option("Price_high")
-    assert sorting_option.verify_sorting_option("Price_high", "https://skleptest.pl/product-category/shirts/?orderby=price-desc"), "Sorting by price high to low failed"
+    sorting_option.click_sorting_option("Price_desc")
+    assert sorting_option.verify_sorting_option("Price_desc", "https://skleptest.pl/product-category/shirts/?orderby=price-desc"), "Sorting by price high to low failed"
 
 
 def test_sort_by_default(driver):

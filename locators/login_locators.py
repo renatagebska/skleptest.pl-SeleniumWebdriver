@@ -10,3 +10,5 @@ class LoginLocator:
     login_button_xpath = '//*[@id="customer_login"]/div[1]/form/p[3]/input[3]'
     # log_out
     logout_xpath = '//*[@id="post-8"]/div[2]/div/p[1]/a'
+    # error message
+    error_xpath = '//*[@id="post-8"]/div[2]/ul/li'

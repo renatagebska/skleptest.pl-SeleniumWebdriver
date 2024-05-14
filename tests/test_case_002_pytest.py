@@ -19,7 +19,7 @@ def login_page(driver):
     return LoginPage(driver)
 
 
-def test_login_and_logout(driver, login_page):
+def test_login_and_logout(login_page):
     login_page.go_to_account()
     login_page.login("user@example.com", "password1234!!!user")
 
@@ -28,6 +28,38 @@ def test_login_and_logout(driver, login_page):
     login_page.logout()
 
     assert not login_page.is_logged_in()
+
+
+def test_login_failed_no_username(login_page):
+    login_page.go_to_account()
+    login_page.login("", "password1234!!!user")
+
+    error_message = login_page.is_error_message_displayed()
+    assert error_message == "Error: Username is required."
+
+
+def test_login_failed_wrong_username(login_page):
+    login_page.go_to_account()
+    login_page.login("wrongusername", "password1234!!!user")
+
+    error_message = login_page.is_error_message_displayed()
+    assert error_message == 'Error: The username wrongusername is not registered on this site. If you are unsure of your username, try your email address instead.'
+
+def test_login_failed_no_password(login_page):
+    login_page.go_to_account()
+    login_page.login("user@example.com", "")
+
+    error_message = login_page.is_error_message_displayed()
+    assert error_message == "Error: The password field is empty."
+
+
+def test_login_failed_wrong_password(login_page):
+    login_page.go_to_account()
+    login_page.login("user@example.com", "somewrongpassword")
+
+    error_message = login_page.is_error_message_displayed()
+    assert (error_message == 'Error: The password you entered for the username user@example.com is incorrect. '
+                             'Lost your password?')
 
 
 @pytest.fixture(scope="function", autouse=True)

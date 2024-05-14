@@ -1,7 +1,7 @@
 # skleptest.pl-SeleniumWebdriver
 ## Automation of Test Cases using Selenium Webdriver
 
-## Test Cases
+## Test Cases:
 
 
 ### ID: 001
@@ -20,7 +20,7 @@
 * Check if the registration was successful.
 * Close the browser.
 
-#### Expected Result:
+#### Expected Results:
 * After steps 1-3: The website https://skleptest.pl/ opens in the Chrome browser window.
 * After step 4: The "Account" link is clicked, leading the user to the account registration section.
 * After steps 5-7: The correct registration email and password are entered, and then the registration button is clicked. If there are no conflicts, such as an existing account with this email address, the registration should be successful.
@@ -46,7 +46,7 @@
 * Check if the user has been successfully logged out.
 * Close the browser.
 
-#### Expected Result:
+#### Expected Results:
 * After steps 1-3: The website https://skleptest.pl/ opens in the Chrome browser window.
 * After step 4: The user is redirected to the login section by clicking the "Account" link.
 * After steps 5-6: The correct email address and password are entered, and then the login button is clicked. If the login data is correct, the user will be logged into their account.
@@ -70,7 +70,7 @@
 * Click on each subcategory: "All", "Shirts", "Featured", "Trends", "Scarfs", "Shoes", "Tops", "Blouses", "Jeans", "Dresses", and check if they lead the user to the correct product page.
 * Close the browser.
 
-#### Expected Result:
+#### Expected Results:
 * After steps 1-3: The website https://skleptest.pl/ opens in the Chrome browser window.
 * After step 4: The user locates and clicks the "Categories" link to go to the product categories.
 * After step 5: The user clicks on each subcategory and verifies if they are redirected to the correct product pages.
@@ -115,7 +115,7 @@
 * Make sure the results are sorted by price, with the highest prices at the beginning.
 * Close the browser.
 
-#### Expected Result:
+#### Expected Results:
 * After steps 1-3: The website https://skleptest.pl opens in the Chrome browser window.
 * After step 4: The user locates and goes to the "Categories" link.
 * After step 5: The user clicks on the "Shirts" subcategory.
@@ -151,6 +151,6 @@
 * Locate and click the "My Cart" buttons.
 * Close the browser.
 
-#### Expected Result: 
+#### Expected Results: 
 * Users can add products to the cart from different subcategories. It is possible to add different quantities of products to the cart for each category. After adding products to the cart, users can check its contents by clicking on the "My Cart" button. Ultimately, the expected result is the full functionality of the process of adding products to the cart.
 ---

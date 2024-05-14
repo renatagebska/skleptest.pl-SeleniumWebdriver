@@ -24,6 +24,36 @@ class TestLoginPage(unittest.TestCase):
 
         self.assertFalse(self.login_page.is_logged_in())
 
+    def test_login_failed_no_username(self):
+        self.login_page.go_to_account()
+        self.login_page.login("", "password1234!!!user")
+
+        error_message = self.login_page.is_error_message_displayed()
+        self.assertEqual(error_message, "Error: Username is required.")
+
+    def test_login_failed_wrong_username(self):
+        self.login_page.go_to_account()
+        self.login_page.login("wrongusername", "password1234!!!user")
+
+        error_message = self.login_page.is_error_message_displayed()
+        self.assertEqual(error_message, 'Error: The username wrongusername is not registered on this site. If you are '
+                                                'unsure of your username, try your email address instead.')
+
+    def test_login_failed_no_password(self):
+        self.login_page.go_to_account()
+        self.login_page.login("user@example.com", "")
+
+        error_message = self.login_page.is_error_message_displayed()
+        self.assertEqual(error_message, 'Error: The password field is empty.')
+
+    def test_login_failed_wrong_password(self):
+        self.login_page.go_to_account()
+        self.login_page.login("user@example.com", "somewrongpassword")
+
+        error_message = self.login_page.is_error_message_displayed()
+        self.assertEqual(error_message, 'Error: The password you entered for the username user@example.com is incorrect. '
+                                               'Lost your password?')
+
     def tearDown(self):
         test_method_name = self._testMethodName
         timestamp = datetime.datetime.now().strftime('%y-%m-%d_%H-%M-%S')
