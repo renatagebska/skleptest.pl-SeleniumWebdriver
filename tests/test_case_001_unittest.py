@@ -25,6 +25,16 @@ class TestRegistration(unittest.TestCase):
         registration_page.click_register_button()
         registration_page.is_welcome_element_displayed()
 
+    def test_registration_failed_no_email(self):
+        registration_page = RegistrationPage(self.driver)
+        registration_page.navigate_to_registration_page()
+
+        registration_page.click_register_button()
+        registration_page.is_welcome_element_displayed()
+
+        error_message = registration_page.is_error_message_displayed()
+        self.assertEqual(error_message, 'Error: Please provide a valid email address.')
+
     def test_registration_failed_no_password(self):
         registration_page = RegistrationPage(self.driver)
         registration_page.navigate_to_registration_page()
@@ -37,16 +47,6 @@ class TestRegistration(unittest.TestCase):
 
         error_message = registration_page.is_error_message_displayed()
         self.assertEqual(error_message, 'Error: Please enter an account password.')
-
-    def test_registration_failed_no_email(self):
-        registration_page = RegistrationPage(self.driver)
-        registration_page.navigate_to_registration_page()
-
-        registration_page.click_register_button()
-        registration_page.is_welcome_element_displayed()
-
-        error_message = registration_page.is_error_message_displayed()
-        self.assertEqual(error_message, 'Error: Please provide a valid email address.')
 
     def tearDown(self):
         test_method_name = self._testMethodName
