@@ -240,4 +240,77 @@ After clicking the "Login" button, an error message should appear asking for the
 #### Expected Result:
 Users can add products to the cart from different subcategories. It is possible to add different quantities of products to the cart for each category. After adding products to the cart, users can check its contents by clicking the "My Cart" button. Ultimately, the expected result is full functionality of the product addition process to the cart.
 
----
+## Project Structure
+
+```plaintext
+.
+├── locators
+│   ├── __init__.py
+│   ├── add_products_locators.py
+│   ├── categories_locators.py
+│   ├── login_locators.py
+│   ├── registration_locators.py
+│   ├── select_products_locators.py
+│   ├── sort_locators.py
+├── pages
+│   ├── __init__.py
+│   ├── add_products_page.py
+│   ├── categories_page.py
+│   ├── login_page.py
+│   ├── registration_page.py
+│   ├── select_products_page.py
+│   ├── sort_page.py
+├── reports
+│   └── (reports will be saved here)
+├── screenshots
+│   └── (screenshots will be saved here)
+├── tests
+│   ├── __init__.py
+│   ├── chromedriver.exe
+│   ├── test_case_001_pytest.py
+│   ├── test_case_001_unittest.py
+│   ├── test_case_002_pytest.py
+│   ├── test_case_002_unittest.py
+│   ├── test_case_003_pytest.py
+│   ├── test_case_003_unittest.py
+│   ├── test_case_004_pytest.py
+│   ├── test_case_004_unittest.py
+│   ├── test_case_005_pytest.py
+│   ├── test_case_005_unittest.py
+├── requirements.txt
+├── README.md
+```
+
+## Setup
+
+### Clone the repository:
+
+```sh
+git clone https://github.com/renatagebska/fakestore.testelka.pl---Robot-Framework.git
+cd fakestore.testelka.pl---Robot-Framework
+```
+
+### Create a virtual environment and activate it:
+##### macOS i Linux:
+```sh
+# Tworzenie wirtualnego środowiska
+python3 -m venv venv
+
+# Aktywacja wirtualnego środowiska
+source venv/bin/activate
+```
+##### Windows
+```sh
+# Tworzenie wirtualnego środowiska
+python -m venv venv
+
+# Aktywacja wirtualnego środowiska
+venv\Scripts\activate
+```
+### Install the required packages:
+```sh
+pip install -r requirements.txt
+```
+### Ensure you have the Chrome WebDriver installed and it's in your PATH. You can download it [here](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+
+## Running Tests
