@@ -286,8 +286,8 @@ Users can add products to the cart from different subcategories. It is possible 
 ### Clone the repository:
 
 ```sh
-git clone https://github.com/renatagebska/fakestore.testelka.pl---Robot-Framework.git
-cd fakestore.testelka.pl---Robot-Framework
+git clone https://github.com/renatagebska/skleptest.pl-SeleniumWebdriver.git
+cd skleptest.pl-SeleniumWebdriver
 ```
 
 ### Create a virtual environment and activate it:
