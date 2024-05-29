@@ -1,6 +1,14 @@
 # skleptest.pl-SeleniumWebdriver
 ## Automation of Test Cases using Selenium Webdriver
+This repository contains functional tests for various functionalities of the skleptest.pl website including user registration, login, adding products, sorting, and selecting products. The tests are written using Selenium WebDriver and include both pytest and unittest frameworks for test execution.
 
+## Table of Contents
+
+- [Test Cases](#test-cases)
+- [Project Structure](#project-structure)
+- [Setup](#setup)
+- [Running Tests](#running-tests)
+  
 ## Test Cases:
 ### ID: 001 Functional Tests for User Registration
 ### Test 1
@@ -55,8 +63,6 @@ After clicking the "Register" button, an error message should appear asking for 
 
 #### Expected Result:
 After clicking the "Register" button, an error message should appear asking for a password.
-
----
 
 ### ID: 002 Functional Tests for Login
 ### Test 1
@@ -147,8 +153,6 @@ After clicking the "Login" button, an error message should appear asking for a p
 #### Expected Result:
 After clicking the "Login" button, an error message should appear asking for the correct password.
 
----
-
 ### ID: 003 Functional Tests for Navigation
 ### Title: Navigation through different product categories and checking if clicking each subcategory displays the correct products.
 
@@ -165,8 +169,6 @@ After clicking the "Login" button, an error message should appear asking for the
 * After step 4: The user will locate and click the "Categories" link to navigate to the product categories.
 * After step 5: The user will click on each subcategory and verify if they direct the user to the appropriate product pages.
 * After step 6: The browser will be closed.
-
----
 
 ### ID: 004 Functional Tests for Product Sorting
 ### Title: Verify the functionality of the "Shirts" product sorting options.
@@ -209,8 +211,6 @@ After clicking the "Login" button, an error message should appear asking for the
 * After step 5: The user will click the "Shirts" subcategory.
 * After steps 6-11: If the test works correctly, the results should be displayed according to the selected sorting criteria. In the case of errors, error messages or incorrectly sorted results are expected, indicating an issue with the sorting functionality on the website.
 * After step 12: The browser will be closed.
-
----
 
 ### ID: 005 Functional Tests for Adding Products to Cart
 ### Title: Verify if users can successfully add products to the cart.
@@ -314,3 +314,25 @@ pip install -r requirements.txt
 ### Ensure you have the Chrome WebDriver installed and it's in your PATH. You can download it [here](https://developer.chrome.com/docs/chromedriver/downloads?hl=pl).
 
 ## Running Tests
+### Using pytest
+To run all pytest-based test:
+```sh
+pytest tests/test_case_001_pytest.py
+pytest tests/test_case_002_pytest.py
+pytest tests/test_case_003_pytest.py
+pytest tests/test_case_004_pytest.py
+pytest tests/test_case_005_pytest.py
+```
+### Using unittest
+To run all unittest-based tests:
+```sh
+python -m unittest discover -s tests -p "test_case_*_unittest.py"
+```
+### Running tests with pytest and generating HTML report using pytest HTML Reporter
+```sh
+pytest tests/example_test_case.py --html-report=reports/example_html_report.html --title='Example HTML Report'
+```
+### Running tests with pytest and generating HTML report using pytest-html
+```sh
+pytest tests/example_test_case.py --html=reports/example_html_report.html
+```
