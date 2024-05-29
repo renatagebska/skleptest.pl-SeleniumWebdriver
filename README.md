@@ -311,6 +311,6 @@ venv\Scripts\activate
 ```sh
 pip install -r requirements.txt
 ```
-### Ensure you have the Chrome WebDriver installed and it's in your PATH. You can download it [here](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+### Ensure you have the Chrome WebDriver installed and it's in your PATH. You can download it [here](https://developer.chrome.com/docs/chromedriver/downloads?hl=pl).
 
 ## Running Tests
