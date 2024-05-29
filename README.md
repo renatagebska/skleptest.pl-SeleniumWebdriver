@@ -293,18 +293,18 @@ cd skleptest.pl-SeleniumWebdriver
 ### Create a virtual environment and activate it:
 ##### macOS i Linux:
 ```sh
-# Tworzenie wirtualnego środowiska
+# Creating the virtual environment
 python3 -m venv venv
 
-# Aktywacja wirtualnego środowiska
+# Activating the virtual environment
 source venv/bin/activate
 ```
 ##### Windows
 ```sh
-# Tworzenie wirtualnego środowiska
+# Creating the virtual environment
 python -m venv venv
 
-# Aktywacja wirtualnego środowiska
+# Activating the virtual environment
 venv\Scripts\activate
 ```
 ### Install the required packages:
